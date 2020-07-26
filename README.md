@@ -5,6 +5,10 @@ Allows the ease in shortlisting, scheduling interviews, providing feedback and t
 
 NOTE: This is very old code that was last maintained sometime in 2016. Alot has happened since then. I've made this public instead of it gathering cobwebs in some private repo. I hope someone finds it useful.
 
+# Screens
+
+![Applications](app/assets/images/applications.png)
+
 # Ruby Version
 - 2.0.0
 

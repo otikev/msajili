@@ -27,7 +27,7 @@ development:
   database: recruiter_development
   host: localhost
   username: postgres
-  password: moon443
+  password: somepwd
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -55,11 +55,11 @@ test:
   database: recruiter_test
   host: localhost
   username: postgres
-  password: moon443
+  password: somepwd
 
 production:
   <<: *default
   database: recruiter_production
   host: localhost
   username: postgres
-  password: moon443
+  password: somepwd

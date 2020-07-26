@@ -6,8 +6,10 @@ Allows the ease in shortlisting, scheduling interviews, providing feedback and t
 NOTE: This is very old code that was last maintained sometime in 2016. Alot has happened since then. I've made this public instead of it gathering cobwebs in some private repo. I hope someone finds it useful.
 
 # Screens
-
+![Dashboard](app/assets/images/dashboard.png)
 ![Applications](app/assets/images/applications.png)
+![Jobs](app/assets/images/jobs.png)
+![Calendar](app/assets/images/calendar.png)
 
 # Ruby Version
 - 2.0.0

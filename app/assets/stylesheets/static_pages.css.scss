@@ -1,0 +1,70 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.box {
+  display: block;
+  z-index: 1999;
+  border: 1px solid #f8f8f8;
+  box-shadow: 0 0 4px #D8D8D8;
+  background: #FFFFFF;
+  margin-bottom: 20px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.full-content .box {
+  border: 0;
+  margin-bottom: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.box-header {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-bottom: 1px solid #E4E4E4;
+    border-radius: 3px 3px 0 0;
+    color: #363636;
+    font-size: 16px;
+    height: 28px;
+    overflow: hidden;
+    position: relative;
+}
+
+.box-pricing .box-name {
+    padding: 0 10px;
+    text-align: center;
+}
+.box-content {
+    background: none repeat scroll 0 0 #FCFCFC;
+    border-radius: 0 0 3px 3px;
+    position: relative;
+}
+.box-pricing .box-name {
+    padding: 0 10px;
+    text-align: center;
+}
+.box-name, .modal-header-name {
+  padding-left: 15px;
+  line-height: 28px;
+}
+.box-name:hover {
+  cursor: move;
+}
+.box-name > i {
+  margin-right:5px;
+}
+.box-icons {
+  position: absolute;
+  top:0;
+  right:0;
+  z-index: 9;
+}
+.no-move {
+    display: none;
+}
+.bg-default {
+    padding: 15px;
+    background: none repeat scroll 0 0 #D8D8D8 !important;
+}

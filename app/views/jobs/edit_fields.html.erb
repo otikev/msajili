@@ -1,0 +1,26 @@
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h1><b>Edit Job</b></h1><b>step 2 of 2</b>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-12 padding-10">
+          <%= link_to 'Go To Job', showjob_url(id:@job.id), class:'btn btn-primary'%>
+        </div>
+      </div>
+      <div class="row">
+        <p class="col-sm-12"><b>Custom fields</b>
+          <a id="<%=generate_help_popover_id%>" class="btn btn-warning btn-xs" tabindex="0" data-placement="top" title="Custom Fields"
+             data-content="You might want to add more details to your job posting. That's where custom fields come in. Add fields like 'Salary','Duration','Academic requirements','Required experience' etc."
+          ><b>?</b></a>
+        </p>
+      </div>
+      <div class="row">
+        <%= render '/shared/job_fields_container', :job_id => @job.id %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-1"></div>

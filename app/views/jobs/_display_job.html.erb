@@ -1,0 +1,79 @@
+<div class="panel-body">
+  <div class="row">
+    <div class="col-sm-12 text-right">
+      <%= format_date_with_prefix('<b>Deadline:</b>', @job.deadline) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <b>Company</b>
+    </div>
+    <div class="col-sm-6">
+      <% if @job.internal_job? %>
+          <%= @job.company.name %>
+      <% else %>
+          <%= @job.company_name %>
+      <% end %>
+    </div>
+  </div>
+  <% if @job.internal_job? %>
+      <div class="row">
+        <div class="col-sm-2">
+          <b>Website</b>
+        </div>
+        <div class="col-sm-10">
+          <%= @job.company.website %>
+        </div>
+      </div>
+  <% end %>
+  <% if @job.internal_job? %>
+      <hr/>
+      <div class="row">
+        <div class="col-sm-12"><b>About Company</b></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12"><%= @job.company.about %></div>
+      </div>
+  <% end %>
+  <hr/>
+  <div class="row">
+    <div class="col-sm-12"><b>Job location</b></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12"><%= @job.city %>,<%= @job.country_name %></div>
+  </div>
+  <% @job.job_fields.order(:id => :asc).each do |f| %>
+      <hr/>
+      <div class="row">
+        <div class="col-sm-12">
+          <b><%= f.title %></b>
+        </div>
+        <div class="col-sm-12">
+          <%= simple_format(f.content_html) %>
+        </div>
+      </div>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- ad slot -->
+    </div>
+  </div>
+  <hr/>
+  <%= render '/shared/android_app' %>
+</div>
+<div class="panel-footer">
+  <div class="row">
+    <div class="col-sm-12">
+      <% if @job.internal_job? %>
+          <%= link_to 'Apply Now', apply_path(t: @job.token), class: 'btn btn-primary' %>
+      <% end %>
+      <span class="padding-5">
+          Share
+        </span>
+      <a href="#" data-type="linkedin" data-url="<%= request.original_url %>" data-title="Job opening: <%= @job.title %> at <%= @job.internal_job? ? @job.company.name : @job.company_name %>" data-description="<%= @job.internal_job? ? @job.company.about : '' %>" data-via="Msajili" data-media="<%= "#{request.protocol}#{request.host_with_port}#{asset_path('logo_blue.png')}" %>" class="prettySocial fa fa-linkedin"></a>
+      <a href="#" data-type="twitter" data-url="<%= request.original_url %>" data-description="Job opening: <%= @job.title %> at <%= @job.internal_job? ? @job.company.name : @job.company_name %>" data-via="MsajiliKenya" class="prettySocial fa fa-twitter"></a>
+      <a href="#" data-type="facebook" data-url="<%= request.original_url %>" data-title="Job opening: <%= @job.title %> at <%= @job.internal_job? ? @job.company.name : @job.company_name %>" data-description="<%= @job.internal_job? ? @job.company.about : '' %>" data-media="<%= "#{request.protocol}#{request.host_with_port}#{asset_path('logo_blue.png')}" %>" class="prettySocial fa fa-facebook"></a>
+      <a href="#" data-type="googleplus" data-url="<%= request.original_url %>" data-description="<%= @job.internal_job? ? @job.company.about : '' %>" class="prettySocial fa fa-google-plus"></a>
+    </div>
+  </div>
+</div>

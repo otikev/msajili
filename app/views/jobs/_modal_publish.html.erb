@@ -1,0 +1,35 @@
+<div class="modal fade" id="publish_job_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Publish Job</h4>
+      </div>
+      <div class="modal-body">
+        <% if @job.has_procedure %>
+            <% if @job.status!=Job.status_open %>
+                You are about to publish this job, it will be visible to everyone.
+            <% else %>
+                You are about to unpublish this job, it will no longer be visible to everyone.
+            <% end %>
+        <% else %>
+            You have not set a procedure. Please select a procedure and click on 'Update Job'.
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <div class="col-md-12 text-right">
+          <button class="btn btn-xs btn-primary" data-dismiss="modal" >
+            Close
+          </button>
+          <% if @job.has_procedure %>
+              <% if @job.status!=Job.status_open %>
+                  <%= link_to 'Publish', setstatus_path(t: @job.token,status: Job.status_open), class: 'btn btn-xs btn-success'%>
+              <% else %>
+                  <%= link_to 'Unpublish', setstatus_path(t: @job.token,status: Job.status_unpublished), class: 'btn btn-xs btn-success'%>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

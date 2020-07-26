@@ -1,0 +1,40 @@
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th width="33.3%"><h3><b>On-Demand</b></h3></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>3 Users</td>
+  </tr>
+  <tr>
+    <td>Unlimited open jobs</td>
+  </tr>
+  <tr>
+    <td>Unlimited candidates/job</td>
+  </tr>
+  <tr>
+    <td>Pay per job</td>
+  </tr>
+  <tr>
+    <td><div><h3>Ksh. <b><%=Package::ON_DEMAND_PRICE%></b>/Job</h3></div></td>
+  </tr>
+  <tr>
+    <td>1 free job</td>
+  </tr>
+  <tr>
+    <td>
+      <% if @current_user && @current_user.as_admin %>
+          <% if @current_user.company.package == Package::ON_DEMAND%>
+              <p class="col-sm-12 text-center"><b>Subscribed</b></p>
+          <%else%>
+              <%= link_to 'Subscribe', subscribe_path(package:Package::ON_DEMAND),class: "btn btn-success btn-block" %>
+              <%end%>
+              <% else %>
+              <%= link_to 'Sign up', register_path(package:Package::ON_DEMAND),class: "btn btn-success btn-block" %>
+              <% end %>
+              </td>
+              </tr>
+              </tbody>
+              </table>

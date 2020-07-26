@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <url>
+    <loc><%= root_url %></loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc><%= signup_url %></loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc><%= register_url %></loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc><%= role_url %></loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc><%= features_url %></loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc><%= browse_url %></loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <% Job.where("status != #{Job.status_unpublished} and status != #{Job.status_closed}").find_each do |job| %>
+      <url>
+        <loc><%= external_url(t:job.token,n:job.title) %></loc>
+        <changefreq>weekly</changefreq>
+        <lastmod><%= job.updated_at.strftime('%Y-%m-%d') %></lastmod>
+      </url>
+  <% end %>
+</urlset>

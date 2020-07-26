@@ -1,0 +1,63 @@
+<div class="modal fade" id="request_demo_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Request A Demo</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@demo, url: request_demo_path, method: 'post',html: {role:'form'}) do |f|%>
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                Leave us your details below and we will organise a demo at absolutely no cost!
+              </div>
+              <div class="col-sm-1"></div>
+            </div><br/>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                <%= f.text_field :name, class: 'form-control', :required=>true, :placeholder=>'Your name' %>
+                </div>
+                <div class="col-sm-1"></div>
+            </div><br/>
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+              <%= f.text_field :email, class: 'form-control', :required=>true, :placeholder=>'Your email' %>
+              </div>
+              <div class="col-sm-1"></div>
+            </div><br/>
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+              <%= f.text_field :phone, class: 'form-control', :required=>true, :placeholder=>'Phone number' %>
+              </div>
+              <div class="col-sm-1"></div>
+            </div><br/>
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+              <%= f.text_field :company, class: 'form-control', :required=>true, :placeholder=>'Company name' %>
+              </div>
+              <div class="col-sm-1"></div>
+            </div><br/>
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                Collection and use of personal information is governed by our <%= link_to 'Privacy Policy',privacy_path, :target => 'blank'%>
+              </div>
+              <div class="col-sm-1"></div>
+            </div><br/>
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-6">
+                <%= f.submit 'Request', class: 'btn btn-large btn-primary btn-block' %>
+              </div>
+              <div class="col-sm-3"></div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

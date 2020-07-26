@@ -1,0 +1,30 @@
+<div  class="form-group padding-20" id=<%="job_field_#{f.id}"%> data-id="<%= f.id %>" data-position="<%= f.position %>">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-10">
+                <input type="text" id=<%="job_field_title_#{f.id}"%> value="<%= f.title %>" placeholder="Title" class="btn-xs col-sm-12 padding-5">
+                <br><br>
+                <textarea id=<%="job_field_content_#{f.id}"%> rows="7" required="required"  class="form-control padding-5"><%= f.content %></textarea>
+                <hr/>
+            </div>
+            <div id="<%= "actions_#{f.id}" %>" class="col-sm-2 padding-10">
+                <div class="actions_buttons">
+                    <a id="<%= "job_field_remove_#{f.id}" %>" class="btn btn-danger" data-id="<%=f.id%>" href="javascript:void(0)" >
+                    <i class="fa fa-trash-o fa-lg"></i> Remove
+                    </a>
+                    <br><br>
+                    <a id="<%= "job_field_up_#{f.id}" %>" data-id="<%=f.id%>" href="javascript:void(0)">
+                    <i class="fa fa-arrow-circle-up fa-2x"></i>
+                    </a>
+                    <br><br>
+                    <a id="<%= "job_field_down_#{f.id}" %>" data-id="<%=f.id%>" href="javascript:void(0)">
+                    <i class="fa fa-arrow-circle-down fa-2x"></i>
+                    </a>
+                </div>
+                <div class="actions_progress text-center" style="display: none;">
+                    <i class="fa fa fa-spinner fa-spin fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

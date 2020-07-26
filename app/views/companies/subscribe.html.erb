@@ -1,0 +1,28 @@
+<br/><br/><br/>
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2><b><%= Package.package_name(@package) %></b></h2>
+        </div>
+        <div class="panel-body">
+            <div class="col-sm-12 text-center">
+              You are about to change your subscription, please note that any purchases that are still in effect will be discarded.
+            </div>
+            <% if @warning_text %>
+                <div class="col-sm-12 text-center">
+                  <div class='error_explanation'>
+                    <div class='alert alert-danger'><%= @warning_text %></div>
+                  </div>
+                </div>
+            <% end %>
+            <div class="col-sm-12 text-center">
+                <%= form_for(:subscribe, url: subscribe_path, method: 'post') do |f|%>
+                    <%= f.hidden_field(:package,:value => @package) %>
+                    <%= f.submit('Subscribe',class: 'btn btn-large btn-success') %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-3"></div>

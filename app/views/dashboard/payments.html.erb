@@ -1,0 +1,7 @@
+<% provide(:title, 'Payments') %>
+<% if @current_user.company.package == Package::FREE %>
+    There are no payments to be made in the free package.
+<% else %>
+    <%= link_to 'Make payment', checkout_path,class: 'btn btn-primary' %>
+<% end %>
+<%=render '/shared/payments_table'%>

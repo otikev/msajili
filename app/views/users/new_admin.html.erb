@@ -1,0 +1,64 @@
+<% provide(:title, 'Register employer') %>
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2><b>Register employer</b></h2>
+  </div>
+  <div class="panel-body">
+        <%= form_for(:admin, html: {class: 'form-horizontal col-sm-12',role:'form'}) do |f| %>
+            <%= f.hidden_field :package, :value=> @package %>
+            <div class="row">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-building fa-fw"></i></span>
+                <%= f.text_field :company_name, class: 'form-control col-sm-12', :required=>true, :placeholder=>'Company name' %>
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                <%= f.text_field :name, class: 'form-control col-sm-12', :required=>true, :placeholder=>'Your name' %>
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <%= f.text_field :work_email, class: 'form-control col-sm-12', :required=>true, :placeholder=>'Work email' %>
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                <%= f.text_field :password, class: 'form-control col-sm-12', :required=>true,:type=>'password',:placeholder=>'Password' %>
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                <%= f.text_field :password_confirmation, class: 'form-control col-sm-12', :required=>true,:type=>'password',:placeholder=>'Confirm password' %>
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-11">
+                By signing up, you've read and agreed to our <%= link_to 'Terms of Service',tos_path, :target => 'blank'%>
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-6">
+                <%= f.submit 'Get Started', class: 'btn btn-large btn-primary btn-block' %>
+              </div>
+              <div class="col-sm-3"></div>
+            </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-sm-4"></div>

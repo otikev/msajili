@@ -1,0 +1,5 @@
+<% if !user.is_profile_complete %>
+    <div class='error_explanation'>
+        <div class='alert alert-danger'>Your CV is incomplete! Complete it <%= link_to 'here', profile_path,class:'btn btn-primary' %> </div>
+    </div>
+<% end %>

@@ -1,0 +1,32 @@
+<% provide(:title, 'Reports') %>
+<div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Generate report
+            </div>
+            <div class="panel-body">
+              <%= render 'generate_form' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-7">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= render 'trend' %>
+        </div>
+      </div>
+
+      <% @report.procedures_array.length.times do |i|%>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= render 'stages',:id => i, :stages => @report.get_procedure(i), :procedure_title => @report.procedures_array[i][0][:procedure]  %>
+            </div>
+          </div>
+      <%end%>
+    </div>
+</div>

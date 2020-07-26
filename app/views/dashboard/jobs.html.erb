@@ -1,0 +1,7 @@
+<% provide(:title, 'Jobs') %>
+<div class='row'>
+  <div  class="col-sm-12">
+    <%= link_to 'New Job', newjob_path,class:'btn btn-primary' %>
+  </div>
+</div>
+<%= render '/shared/jobs_table',:filter => @status  %>

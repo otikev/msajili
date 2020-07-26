@@ -1,0 +1,25 @@
+<div class="col-sm-12">
+<% if params %>
+	<%
+	steps = params["steps"]
+	active_step = params["active_step"]
+	titles = params["titles"]
+	%>
+	
+	<% 
+	i=1
+	remainder_width = 12 - steps*2
+	share = (remainder_width/2).to_i
+	%>
+	<div class="col-sm-<%=share%>"></div>
+	<% while i<=steps do %>
+		<div class="col-xs-2 <%= if active_step == i then 'active_box' else 'inactive_box'  end%>">
+			<%= i %>
+			</br>
+			<p class="small_font"><%= titles[i] %></p>
+		</div>
+		<% i+=1 %>
+	<% end %>
+	<div class="col-sm-<%=remainder_width-share%>"></div>
+<% end %>
+</div>

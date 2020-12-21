@@ -1,9 +1,8 @@
 # Msajili
-Msajili is a pet project that I worked on between 2014 and 2016.
-
 Allows the ease in shortlisting, scheduling interviews, providing feedback and tracking hiring progress.
 
-NOTE: This is very old code that was last maintained sometime in 2016. Alot has happened since then. I've made this public instead of it gathering cobwebs in some private repo. I hope someone finds it useful.
+Rails 4.1.6
+Ruby 2.0.0
 
 # Screens
 ![Dashboard](app/assets/images/dashboard.png)

@@ -17,12 +17,14 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-gem 'annotate', '~> 2.6.5' #https://github.com/ctran/annotate_models
 
 # For the country select helper
 gem 'country_select', :git => 'git://github.com/stefanpenner/country_select'
 
 gem 'countries'
+
+#font Awesome
+gem 'font-awesome-rails', '~> 4.7.0.0'
 
 #for building nested forms
 gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'

@@ -1,4 +1,4 @@
-class CreateAcademicQualifications < ActiveRecord::Migration
+class CreateAcademicQualifications < ActiveRecord::Migration[6.0]
   def change
     create_table :academic_qualifications do |t|
       t.string :level

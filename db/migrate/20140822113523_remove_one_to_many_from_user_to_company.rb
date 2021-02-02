@@ -1,4 +1,4 @@
-class RemoveOneToManyFromUserToCompany < ActiveRecord::Migration
+class RemoveOneToManyFromUserToCompany < ActiveRecord::Migration[6.0]
   def change
     remove_column :companies, :user_id
     admins = User.where(:role_id => Role.admin)

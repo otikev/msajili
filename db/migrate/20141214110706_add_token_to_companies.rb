@@ -1,4 +1,4 @@
-class AddTokenToCompanies < ActiveRecord::Migration
+class AddTokenToCompanies < ActiveRecord::Migration[6.0]
   def change
     add_column :companies, :identifier, :string, :unique => true
 

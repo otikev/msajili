@@ -1,4 +1,4 @@
-class RemoveFieldsFromJobs < ActiveRecord::Migration
+class RemoveFieldsFromJobs < ActiveRecord::Migration[6.0]
   def change
     remove_column :jobs, :base_salary
     remove_column :jobs, :salary_currency

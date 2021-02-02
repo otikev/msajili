@@ -1,4 +1,4 @@
-class AddPositionToQuestion < ActiveRecord::Migration
+class AddPositionToQuestion < ActiveRecord::Migration[6.0]
   #read more here : http://railsguides.net/change-data-in-migrations-like-a-boss/
   class Question < ActiveRecord::Base
   end

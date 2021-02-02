@@ -1,4 +1,4 @@
-class CreateAgentRequests < ActiveRecord::Migration
+class CreateAgentRequests < ActiveRecord::Migration[6.0]
   def change
     create_table :agent_requests do |t|
       t.string :first_name

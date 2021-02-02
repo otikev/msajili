@@ -1,4 +1,4 @@
-class ChangeStringToDateInAcademicQualifications < ActiveRecord::Migration
+class ChangeStringToDateInAcademicQualifications < ActiveRecord::Migration[6.0]
   def change
     rename_column :academic_qualifications, :start_date, :start_date_string
     add_column :academic_qualifications, :start_date, :date

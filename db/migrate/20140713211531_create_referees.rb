@@ -1,4 +1,4 @@
-class CreateReferees < ActiveRecord::Migration
+class CreateReferees < ActiveRecord::Migration[6.0]
   def change
     create_table :referees do |t|
       t.string :first_name

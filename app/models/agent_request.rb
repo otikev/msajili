@@ -2,13 +2,13 @@
 #
 # Table name: agent_requests
 #
-#  id         :integer          not null, primary key
-#  first_name :string(255)
-#  last_name  :string(255)
-#  phone      :string(255)
-#  email      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id         :bigint           not null, primary key
+#  first_name :string
+#  last_name  :string
+#  phone      :string
+#  email      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 

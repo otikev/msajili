@@ -2,12 +2,16 @@
 #
 # Table name: password_requests
 #
-#  id         :integer          not null, primary key
-#  token      :string(255)
+#  id         :bigint           not null, primary key
+#  token      :string
 #  expiry     :datetime
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  user_id    :bigint
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_password_requests_on_user_id  (user_id)
 #
 
 

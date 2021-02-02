@@ -2,19 +2,21 @@
 #
 # Table name: applications
 #
-#  id           :integer          not null, primary key
+#  id           :bigint           not null, primary key
 #  cover_letter :text
-#  job_id       :integer
-#  user_id      :integer
-#  created_at   :datetime
-#  updated_at   :datetime
+#  job_id       :bigint
+#  user_id      :bigint
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #  status       :integer
 #  stage_id     :integer
 #  dropped      :boolean          default(FALSE)
 #
 # Indexes
 #
+#  index_applications_on_job_id              (job_id)
 #  index_applications_on_job_id_and_user_id  (job_id,user_id) UNIQUE
+#  index_applications_on_user_id             (user_id)
 #
 
 class Application < ApplicationRecord

@@ -2,16 +2,21 @@
 #
 # Table name: interviews
 #
-#  id              :integer          not null, primary key
+#  id              :bigint           not null, primary key
 #  start_time      :datetime
 #  end_time        :datetime
-#  location        :string(255)
+#  location        :string
 #  additional_info :text
 #  comments        :text
-#  user_id         :integer
-#  application_id  :integer
-#  created_at      :datetime
-#  updated_at      :datetime
+#  user_id         :bigint
+#  application_id  :bigint
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+# Indexes
+#
+#  index_interviews_on_application_id  (application_id)
+#  index_interviews_on_user_id         (user_id)
 #
 
 

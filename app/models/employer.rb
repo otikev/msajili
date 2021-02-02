@@ -2,14 +2,18 @@
 #
 # Table name: employers
 #
-#  id            :integer          not null, primary key
-#  name          :string(255)
+#  id            :bigint           not null, primary key
+#  name          :string
 #  from          :date
 #  to            :date
-#  position_held :string(255)
-#  user_id       :integer
-#  created_at    :datetime
-#  updated_at    :datetime
+#  position_held :string
+#  user_id       :bigint
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+# Indexes
+#
+#  index_employers_on_user_id  (user_id)
 #
 
 

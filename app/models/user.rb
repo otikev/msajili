@@ -2,23 +2,28 @@
 #
 # Table name: users
 #
-#  id               :integer          not null, primary key
-#  first_name       :string(255)
-#  last_name        :string(255)
-#  email            :string(255)
-#  country          :string(255)
-#  city             :string(255)
-#  password_hash    :string(255)
-#  password_salt    :string(255)
-#  auth_token       :string(255)
-#  company_id       :integer
-#  role             :integer
-#  created_at       :datetime
-#  updated_at       :datetime
+#  id               :bigint           not null, primary key
+#  first_name       :string
+#  last_name        :string
+#  email            :string
+#  country          :string
+#  city             :string
+#  password_hash    :string
+#  password_salt    :string
+#  auth_token       :string
+#  company_id       :bigint
+#  role             :bigint
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #  activated        :boolean          default(FALSE)
-#  activation_token :string(255)
+#  activation_token :string
 #  expiry           :date
 #  enabled          :boolean          default(FALSE)
+#
+# Indexes
+#
+#  index_users_on_company_id  (company_id)
+#  index_users_on_role        (role)
 #
 
 class User < ApplicationRecord

@@ -2,13 +2,19 @@
 #
 # Table name: commissions
 #
-#  id             :integer          not null, primary key
+#  id             :bigint           not null, primary key
 #  amount         :float
-#  sales_agent_id :integer
-#  payment_id     :integer
-#  company_id     :integer
-#  created_at     :datetime
-#  updated_at     :datetime
+#  sales_agent_id :bigint
+#  payment_id     :bigint
+#  company_id     :bigint
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+# Indexes
+#
+#  index_commissions_on_company_id      (company_id)
+#  index_commissions_on_payment_id      (payment_id)
+#  index_commissions_on_sales_agent_id  (sales_agent_id)
 #
 
 

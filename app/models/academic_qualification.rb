@@ -2,15 +2,20 @@
 #
 # Table name: academic_qualifications
 #
-#  id                :integer          not null, primary key
-#  institution       :string(255)
-#  award             :string(255)
-#  user_id           :integer
-#  created_at        :datetime
-#  updated_at        :datetime
-#  academic_level_id :integer
+#  id                :bigint           not null, primary key
+#  institution       :string
+#  award             :string
+#  user_id           :bigint
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  academic_level_id :bigint
 #  start_date        :date
 #  end_date          :date
+#
+# Indexes
+#
+#  index_academic_qualifications_on_academic_level_id  (academic_level_id)
+#  index_academic_qualifications_on_user_id            (user_id)
 #
 
 

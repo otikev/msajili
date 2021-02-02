@@ -2,11 +2,15 @@
 #
 # Table name: responsibilities
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  description :text
-#  employer_id :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  employer_id :bigint
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+# Indexes
+#
+#  index_responsibilities_on_employer_id  (employer_id)
 #
 
 

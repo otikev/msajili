@@ -2,14 +2,18 @@
 #
 # Table name: questions
 #
-#  id            :integer          not null, primary key
+#  id            :bigint           not null, primary key
 #  content       :text
-#  job_id        :integer
-#  created_at    :datetime
-#  updated_at    :datetime
+#  job_id        :bigint
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #  template_id   :integer
 #  position      :integer
-#  question_type :integer
+#  question_type :integer          default(0)
+#
+# Indexes
+#
+#  index_questions_on_job_id  (job_id)
 #
 
 class Question < ApplicationRecord

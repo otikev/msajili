@@ -29,7 +29,7 @@
       <% end %>
 
       <div class="text-center">
-        <%= paginate @jobs %>
+        <%= will_paginate @jobs %>
       </div>
       <% @jobs.each do |j| %>
           <%= render 'shared/job_preview', :job => j %>
@@ -39,7 +39,7 @@
         <!-- ad slot -->
       </div>
       <div class="text-center">
-        <%= paginate @jobs %>
+        <%= will_paginate @jobs %>
       </div>
     </div>
     <div class="col-sm-4">

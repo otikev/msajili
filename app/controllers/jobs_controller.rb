@@ -223,7 +223,15 @@ class JobsController < ApplicationController
 
     if params[:search][:q]
       query = "%#{params[:search][:q]}%".downcase
-      @jobs = Job.joins('left outer join companies on jobs.company_id = companies.id').page(p).per(10).where('(jobs.title ILIKE ? or jobs.company_name ILIKE ? or companies.name ILIKE ?) and jobs.status = ?',query,query,query,Job.status_open).order(:id => :desc)
+      @jobs = Job.joins('left outer join companies on jobs.company_id = companies.id')
+      .where('(jobs.title ILIKE ? or jobs.company_name ILIKE ? or companies.name ILIKE ?) and jobs.status = ?',
+        query,query,query,Job.status_open).order(:id => :desc)
+      .paginate(page: params[:page], per_page: 10)
+
+      # @jobs = Job.joins('left outer join companies on jobs.company_id = companies.id')
+      # .page(p).per(10)
+      # .where('(jobs.title ILIKE ? or jobs.company_name ILIKE ? or companies.name ILIKE ?) and jobs.status = ?',
+      #   query,query,query,Job.status_open).order(:id => :desc)
     end
 
     @search_caption = "Search results for : #{params[:search][:q]}"

@@ -24,6 +24,9 @@ gem 'country_select', :git => 'git://github.com/stefanpenner/country_select'
 
 gem 'countries'
 
+#for building nested forms
+gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

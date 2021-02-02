@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: 1b0689dfb4d230ceabd278eba159fcb02f23c68a
+  specs:
+    nested_form (0.3.2)
+
+GIT
   remote: git://github.com/stefanpenner/country_select
   revision: dec79e6132f76560d55aae956704e066efd61383
   specs:
@@ -232,6 +238,7 @@ DEPENDENCIES
   country_select!
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  nested_form!
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

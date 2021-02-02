@@ -1,0 +1,22 @@
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h1><b>Edit Job</b></h1><b>step 4 of 5</b>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <p class="col-sm-12"><b>Add screening questions</b>
+          <a id="<%=generate_help_popover_id%>" class="btn btn-warning btn-xs" tabindex="0" data-placement="top" title="Screening questions"
+             data-content="These are questions that will be presented to the candidate and submitted along with the application.
+              They are very useful in getting additional information about the candidate."
+          ><b>?</b></a>
+        </p>
+      </div>
+      <div>
+        <%= render '/shared/questions_container', :job_id => @job.id, :template_id => nil %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-2"></div>

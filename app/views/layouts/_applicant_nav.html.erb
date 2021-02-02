@@ -1,0 +1,50 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left info">
+        <p><%= @current_user.first_name %></p>
+
+        <p>
+          <small><%= role_name %></small>
+        </p>
+      </div>
+    </div>
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li class="<%= 'active' if current_page?('/dashboard') %> treeview">
+        <%= link_to dashboardadmin_path, :title => 'Dashboard' do %>
+            <i class="fa fa-dashboard"></i><span>Dashboard</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?('/applications_dashboard') %>">
+        <%= link_to applications_dashboard_path, :title => 'My Applications' do %>
+            <i class="fa fa-th"></i> <span>My Applications</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?('/job_search_dashboard') %>">
+        <%= link_to job_search_dashboard_path, :title => 'Job Search' do %>
+            <i class="fa fa-search"></i> <span>Job Search</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?('/settings') %>">
+        <%= link_to settings_path, :title => 'Settings' do %>
+            <i class="fa fa-cogs"></i> <span>Settings</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?('/contact') %>">
+        <%= link_to contact_path, :title => 'Feedback' do %>
+            <i class="fa fa-phone"></i> <span>Feedback</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?('/mobile') %>">
+        <%= link_to mobile_path, :title => 'Mobile' do %>
+            <i class="fa fa-mobile"></i> <span>Mobile</span>
+        <% end %>
+      </li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

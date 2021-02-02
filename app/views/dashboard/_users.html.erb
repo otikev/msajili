@@ -1,0 +1,8 @@
+<div>
+  <% if @current_user.company.package == Package::FREE %>
+      Only one recruiter is allowed on the free package.
+  <% end %>
+	<%= render "/shared/users_table",:filter => filter %>
+	<br/>
+
+</div>

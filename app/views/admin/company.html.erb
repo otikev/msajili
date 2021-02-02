@@ -1,0 +1,92 @@
+<div class="row padding-10">
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="text-center">
+            <h3><b>Free</b></h3>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row col-sm-12">
+            <% if @company.package == Package::FREE%>
+                <p class="col-sm-12 text-center"><b>Subscribed</b></p>
+            <%else%>
+                <%= form_for(:subscribe, url: adminsubscribe_path, method: 'post') do |f|%>
+                    <%= f.hidden_field(:package,:value => Package::FREE) %>
+                    <%= f.hidden_field(:id,:value => @company.id) %>
+                    <%= f.submit('Subscribe',class: 'btn btn-large btn-success') %>
+                <% end %>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="text-center">
+            <h3><b>On-Demand</b></h3>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row col-sm-12">
+            <% if @company.package == Package::ON_DEMAND%>
+                <p class="col-sm-12 text-center"><b>Subscribed</b></p>
+            <%else%>
+                <%= form_for(:subscribe, url: adminsubscribe_path, method: 'post') do |f|%>
+                    <%= f.hidden_field(:package,:value => Package::ON_DEMAND) %>
+                    <%= f.hidden_field(:id,:value => @company.id) %>
+                    <%= f.submit('Subscribe',class: 'btn btn-large btn-success') %>
+                <% end %>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="text-center">
+            <h3><b>Premium</b></h3>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row col-sm-12">
+            <% if @company.package == Package::PREMIUM%>
+                <p class="col-sm-12 text-center"><b>Subscribed</b></p>
+            <%else%>
+                <%= form_for(:subscribe, url: adminsubscribe_path, method: 'post') do |f|%>
+                    <%= f.hidden_field(:package,:value => Package::PREMIUM) %>
+                    <%= f.hidden_field(:id,:value => @company.id) %>
+                    <%= f.submit('Subscribe',class: 'btn btn-large btn-success') %>
+                <% end %>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="row padding-10">
+  <div class="col-sm-4">
+  </div>
+  <div class="col-sm-4">
+    <% if @company.package == Package::ON_DEMAND %>
+        <%= form_for(:token, url: adminmodify_token_path, method: 'post') do |f|%>
+            <%= f.label :jobs %>
+            <%= f.text_field(:jobs,:value => @company.get_token.jobs) %>
+            <%= f.hidden_field(:company_id,:value => @company.id) %>
+            <%= f.submit('Update',class: 'btn btn-large btn-success') %>
+        <% end %>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <% if @company.package == Package::PREMIUM%>
+        <%= form_for(:token, url: adminmodify_token_path, method: 'post') do |f|%>
+            <%= f.label :expiry %>
+            <%= f.text_field(:expiry,:value => @company.get_token.expiry,id: "#{generate_datepicker_id}", placeholder:'yyyy-mm-dd') %>
+            <%= f.hidden_field(:company_id,:value => @company.id) %>
+            <%= f.submit('Update',class: 'btn btn-large btn-success') %>
+        <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta property="og:image" content="<%= image_url('icon.png') %>"/>
+  <title>Msajili Admin</title>
+  <%= favicon_link_tag 'icon.png' %>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <!-- GOOGLE FONTS-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+<% if @staff %>
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+      <div class="navbar-header">
+        <div class="navbar-brand">
+          <%= link_to admin_url do %>
+              <%= image_tag('logo.png', :class => 'logo') %>
+          <% end %>
+        </div>
+      </div>
+      <div style="color: white;
+              padding: 15px 50px 5px 50px;
+              float: right;
+              font-size: 16px;">
+              <span class="navbar-names">
+                <%= "#{@staff.first_name} #{@staff.last_name}" %>
+              </span>
+        <% if @staff.role == Administrator::ROLE_ADMIN %>
+            <%= link_to 'Editor View', editor_path, class: 'btn btn-success' %>
+        <% end %>
+        <%= link_to fa_icon('power-off', text: 'Sign Out'), adminsignout_path, class: 'btn btn-danger square-btn-adjust' %>
+      </div>
+    </nav>
+<% end %>
+<% flash.each do |key, value| %>
+    <% if value.is_a?(String) %>
+        <div class="alert alert-<%= key %> ">
+          <a class="close" data-dismiss="alert">&#215;</a>
+          <%= content_tag :div, simple_format(value), :id => "flash_#{key}" %>
+        </div>
+    <% end %>
+<% end %>
+<div class="row padding-20">
+  <%= yield %>
+</div>
+<div class="row padding-20">
+  <div id='debug' class='debug'><%= debug(params) if Rails.env.development? %> </div>
+</div>
+</body>
+</html>

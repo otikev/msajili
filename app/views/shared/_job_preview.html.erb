@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-12"> <b><%= job.title %></b></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-2" ><b>Employer</b></div>
+            <% if job.internal_job?%>
+                <div class="col-sm-10" ><%=job.company.name%></div>
+            <% else %>
+                <div class="col-sm-10" ><%=job.company_name%></div>
+            <% end %>
+        </div>
+        <div class="row">
+
+          <div class="col-sm-12" >
+              <%= truncate(job.summary, length: 200) %>
+          </div>
+
+        </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="right_align">
+      <%= link_to ' View ', external_url(t:job.token,n:job.title), class:'btn btn-primary btn-xs'%>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<%
+   container_class = ''
+   text_class = ''
+   text = ''
+%>
+<% if @current_user.company.package == Package::ON_DEMAND %>
+    <%if @current_user.company.get_token.jobs < 1%>
+        <%
+           container_class = 'error_explanation'
+           text_class = 'alert alert-danger'
+           text = 'On-Demand Package: You have 0 tokens! Purchase more under the \'payments\' tab.'
+        %>
+    <% else %>
+        <%
+           container_class = 'success_explanation'
+           text_class = 'alert alert-success'
+           text = "On-Demand Package:  You have #{@current_user.company.get_token.jobs} tokens."
+        %>
+    <% end %>
+<% elsif @current_user.company.package == Package::PREMIUM %>
+    <%if @current_user.company.get_token.is_expired%>
+        <%
+           container_class = 'error_explanation'
+           text_class = 'alert alert-danger'
+           text = 'Premium Package: Your subscription is expired! Purchase a period under the \'payments\' tab.'
+        %>
+    <% elsif @current_user.company.get_token.days_to_expiry < 10 %>
+        <%
+           container_class = 'warning_explanation'
+           text_class = 'alert alert-warning'
+           text = "Premium Package: Your subscription expires in #{@current_user.company.get_token.days_to_expiry} days."
+        %>
+    <% else %>
+        <%
+           container_class = 'success_explanation'
+           text_class = 'alert alert-success'
+           text = "Premium Package: Your subscription is valid until #{format_date(@current_user.company.get_token.expiry.to_date)}"
+        %>
+    <% end %>
+<% elsif @current_user.company.package == Package::FREE %>
+    <%
+       container_class = 'success_explanation'
+       text_class = 'alert alert-success'
+       text = 'Free Package'
+    %>
+<% end %>
+
+<div class='<%=container_class%>'>
+  <div class='<%=text_class%>'><%= text.html_safe %> <%= link_to 'Change package', pricing_path,class:'btn btn-default' %></div>
+</div>

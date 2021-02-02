@@ -1,0 +1,166 @@
+<% provide(:title, 'Home') %>
+<% provide(:description, 'Msajili is an Applicant Tracking System useful for both Human Resource firms and departments within an organization to streamline Hiring') %>
+<% provide(:keywords, 'Applicant Tracking System,ATS, applicant tracking software, saas applicant tracking,hiring software, recruit, recruiter, hire, hiring, employer, employee, HR, human resource, staff, recruitment, hr manager, msajili, usajili, jobs') %>
+<div class="row">
+  <!-- Heading Row -->
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div id="home_phrase" class="col-sm-10 text-center padding-10">
+      <h1>Efficient and easy to use recruitment platform</h1>
+
+      <p>
+        Msajili manages your hiring process so that you spend less time downloading CV's from email or maintaining
+        cumbersome spreadsheets and focus on what's really important: Finding talent.
+      </p>
+
+      <%= link_to register_path(package: Package::FREE), class: 'btn btn-success btn-lg' do %>
+          Post a Job For Free! <i class="fa fa-briefcase fa-lg"></i>
+      <% end %>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= form_for(:search, url: jobsearch_path, method: 'get') do |f| %>
+              <div class="row">
+                <div class="col-sm-9">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                    <%= f.text_field(:q, class: 'form-control btn-block input-lg', placeholder: 'Search jobs in Kenya', :required => true) %>
+                  </div>
+                </div>
+                <div class="col-sm-3"><%= f.submit('Search', class: 'btn btn-default btn-block btn-lg') %></div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <!-- /.row -->
+  <hr>
+  <!-- SCREENSHOTS -->
+  <div class="row home_screenshots">
+    <div class="col-sm-1"></div>
+    <div class="screenshots col-sm-10">
+      <div id="screenshots" class="owl-carousel owl-theme">
+        <div class="shot">
+          <a href="<%= image_path('dashboard.png') %>" data-lightbox-gallery="screenshots-gallery"><img src="<%= image_path('dashboard.png') %>" alt="Screenshot"></a>
+        </div>
+        <div class="shot">
+          <a href="<%= image_path('applications.png') %>" data-lightbox-gallery="screenshots-gallery"><img src="<%= image_path('applications.png') %>" alt="Screenshot"></a>
+        </div>
+        <div class="shot">
+          <a href="<%= image_path('jobs.png') %>" data-lightbox-gallery="screenshots-gallery"><img src="<%= image_path('jobs.png') %>" alt="Screenshot"></a>
+        </div>
+        <div class="shot">
+          <a href="<%= image_path('calendar.png') %>" data-lightbox-gallery="screenshots-gallery"><img src="<%= image_path('calendar.png') %>" alt="Screenshot"></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+  <!-- /END SCREENSHOTS -->
+
+  <hr>
+  <!-- Call to Action Well -->
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="large-text text-center">Recruitment should be easy, affordable and efficient.</p>
+    </div>
+    <!-- /.col-sm-12 -->
+  </div>
+  <!-- /.row -->
+
+  <!-- Content Row -->
+  <div class="row">
+    <div class="col-md-4">
+      <div class="text-center">
+        <div class="icon">
+          <span class="icon_menu-circle_alt2"></span>
+        </div>
+        <h1 class="no_top_margin">Easy to use</h1>
+      </div>
+      <p>
+        Msajili is very easy to use. No training,manual or any form of payment is required to understand and use it.
+      </p>
+
+      <p>
+        The simple interface it comes with allows the ease in shortlisting, scheduling interviews,providing feedback and
+        tracking hiring progress,
+        it has never been this easy.
+      </p>
+
+      <p>
+        HR Managers and recruiters looking to execute their jobs effectively will find the features of this application
+        very user friendy.
+      </p>
+    </div>
+    <!-- /.col-md-4 -->
+    <div class="col-md-4">
+      <div class="text-center">
+        <div class="icon">
+          <span class="icon_wallet"></span>
+        </div>
+        <h1 class="no_top_margin">Affordable</h1>
+      </div>
+      <p>
+        Msajili offers these payment plans that are tailored to fit every employer's preference making it very
+        affordable.You can use it for free,
+        pay per job opening(on-demand) or pay per month(premium),this will depend on what you want.
+      </p>
+
+      <p>
+        Are you looking to switch packages?Its easy, Msajili allows you to do exactly that by simply paying for the
+        package of choice that
+        meets your needs.
+      </p>
+
+    </div>
+    <!-- /.col-md-4 -->
+    <div class="col-md-4">
+      <div class="text-center">
+        <div class="icon">
+          <span class="icon_clock_alt"></span>
+        </div>
+        <h1 class="no_top_margin">Efficient</h1>
+      </div>
+      <p>
+        Msajili has simplified the recruitment process in that all required information is already entered by the
+        candidate.
+        All the recruiter needs to do is move or drop candidates through the recruitment stages making the process quite
+        efficient and time saving.
+      </p>
+
+      <p>
+        The reporting feature available allows the recruiter to quickly generate a summary of the recruitment process.
+        Pre-screening filters automatically rate candidates thus saving the recruiter's time.
+      </p>
+    </div>
+    <!-- /.col-md-4 -->
+  </div>
+  <!-- /.row -->
+  <hr>
+  <!-- Content Row -->
+  <div id="home_phrase2" class="row text-center">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <h1>Join hundreds of employers using Msajili to make hiring painless</h1>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+  <!-- Content Row -->
+  <div class="row text-center">
+    <%= link_to 'Get Started For Free!', register_path(package: Package::FREE), class: 'btn btn-success btn-lg' %>
+    <br/>
+
+    <div class="col-sm-12">
+      <hr/>
+    </div>
+  </div>
+  <%= render '/shared/app_promote' %>
+  </br>
+</div>

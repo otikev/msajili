@@ -1,0 +1,61 @@
+<% provide(:title, 'Process Job') %>
+
+<%if @job.get_completed_applications.count > 0 %>
+	<div class="row">
+        <div class="col-sm-3">
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+              Job
+            </div>
+            <div class="panel-body">
+              <div><b><%=@job.title%></b></div>
+              <div>Total Applications: <%=@job.get_completed_applications.count%></div>
+            </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                Stages
+                <a id="<%=generate_help_popover_id%>" class="btn btn-warning btn-xs" tabindex="0" data-placement="right" title="Stages"
+                   data-content="These are the stages in the job's recruitment procedure. The green number represents the number of active applications in a stage. The red number represents the dropped applications."
+                ><b>?</b></a>
+                </div>
+                <div class="panel-body">
+                  <% @job.procedure.stages.each do |s|%>
+                      <%
+                        if @stage && @stage == s.id
+                          clas = 'btn-primary btn-block'
+                         else
+                          clas = ''
+                         end
+                      %>
+                    <div class="row">
+                        <div class="col-sm-8"><%= link_to s.title, processjob_path(t: @job.token,stage: s.id),class: clas %></div>
+                        <div class="col-sm-2" style="color: green"><%= s.get_active_applications_for_job(@job).count %></div>
+                        <div class="col-sm-2" style="color: red"><%= s.get_dropped_applications_for_job(@job).count %></div>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+
+            <%= render 'filter'%>
+        </div>
+        <div class="col-sm-9">
+            <%= render 'applications', :job_id => @job.id%>
+        </div>
+	</div>
+<% else %>
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="col-sm-12 text-center">
+              There are currently no applications to process.</br></br></br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+<% end %>

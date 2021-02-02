@@ -18,6 +18,12 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 gem 'annotate', '~> 2.6.5' #https://github.com/ctran/annotate_models
+
+# For the country select helper
+gem 'country_select', :git => 'git://github.com/stefanpenner/country_select'
+
+gem 'countries'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

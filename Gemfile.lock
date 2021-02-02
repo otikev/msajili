@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/stefanpenner/country_select
+  revision: dec79e6132f76560d55aae956704e066efd61383
+  specs:
+    country_select (4.0.0)
+      countries (~> 3.0)
+      sort_alphabetical (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -80,6 +88,10 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     concurrent-ruby (1.1.8)
+    countries (3.0.1)
+      i18n_data (~> 0.10.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
     crass (1.0.6)
     erubi (1.10.0)
     ffi (1.14.2)
@@ -87,6 +99,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.8)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.10.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     listen (3.4.1)
@@ -167,6 +180,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.1)
+    sixarm_ruby_unaccent (1.2.0)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -182,6 +198,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unicode_utils (1.4.0)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -211,6 +228,8 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  countries
+  country_select!
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)

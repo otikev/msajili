@@ -1,8 +1,0 @@
-
-<div class="col-sm-12">
-	<div >
-		<hr/>
-		<%= link_to "New Procedure", newprocedure_path, class: "btn btn-primary"%>
-	</div>
-	<%= render "/shared/procedures_table",:add_to => true, :job_token => @job.token%>
-</div>

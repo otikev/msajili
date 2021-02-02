@@ -1,9 +1,0 @@
-development:
-  callback_url: 'http://localhost:3000/pesapalcallback'
-  consumer_key: ''
-  consumer_secret: ''
-
-production:
-  callback_url: 'http://www.msajili.com/pesapalcallback'
-  consumer_key: ''
-  consumer_secret: ''

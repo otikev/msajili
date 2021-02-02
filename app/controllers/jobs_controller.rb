@@ -198,9 +198,9 @@ class JobsController < ApplicationController
 
     if params[:c]
       @category = Category.where(:id => params[:c].to_i).first
-      @jobs = Job.page(p).per(10).where(:category_id => params[:c].to_i,:status => Job.status_open).order(:id => :desc)
+      @jobs = Job.where(:category_id => params[:c].to_i,:status => Job.status_open).order(:id => :desc).paginate(page: params[:page], per_page: 10)
     else
-      @jobs = Job.page(p).per(10).where(:status => Job.status_open).order(:id => :desc)
+      @jobs = Job.where(:status => Job.status_open).order(:id => :desc).paginate(page: params[:page], per_page: 10)
     end
 
     @categories = Category.order(:name => :asc).load

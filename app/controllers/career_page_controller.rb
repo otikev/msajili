@@ -9,7 +9,7 @@ class CareerPageController < ApplicationController
       p = params[:page].to_i
     end
 
-    @jobs = Job.page(p).per(10).where(:status => Job.status_open,:company_id => @company.id).order(:id => :desc)
+    @jobs = Job.where(:status => Job.status_open,:company_id => @company.id).order(:id => :desc).paginate(page: params[:page], per_page: 10)
   end
 
   #external url for showing a job posting

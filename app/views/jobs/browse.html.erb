@@ -30,7 +30,7 @@
             <% end %>
             <hr/>
             <div class="text-center">
-                <%= paginate @jobs %>
+                <%= will_paginate @jobs %>
             </div>
             <% @jobs.each do |j|%>
                 <%= render 'shared/job_preview', :job => j%>
@@ -42,7 +42,7 @@
               </div>
           <% end %>
             <div class="text-center">
-                <%= paginate @jobs %>
+                <%= will_paginate @jobs %>
             </div>
 
 	    </div>

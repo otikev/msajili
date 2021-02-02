@@ -1,4 +1,4 @@
-class CreateFilters < ActiveRecord::Migration
+class CreateFilters < ActiveRecord::Migration[6.0]
   def change
     create_table :filters do |t|
       t.string :title

@@ -2,11 +2,15 @@
 #
 # Table name: choices
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  content     :text
-#  question_id :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  question_id :bigint
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+# Indexes
+#
+#  index_choices_on_question_id  (question_id)
 #
 
 

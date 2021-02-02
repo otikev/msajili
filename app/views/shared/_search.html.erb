@@ -1,0 +1,30 @@
+<div class="col-sm-12">
+	<div class="row">
+		<div class="col-sm-12">
+			<%= form_for(:search, url: jobsearch_path, method: 'get') do |f|%>
+              <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-6"><%= f.text_field(:q,class: 'form-control btn-block',placeholder: 'Search jobs',:required=>true) %></div>
+                <div class="col-sm-2"><%= f.submit('Search',class: 'btn btn-default btn-block') %></div>
+                <div class="col-sm-2"></div>
+              </div>
+			<%end%>
+		</div>
+	</div>
+<br/>
+	<div class="row">
+		<div class="col-sm-4">
+          <%= link_to browse_path do %>
+              All jobs <span class='label label-primary pull-right'><%= Job.category_count(0) %></span>
+          <% end %>
+        </div>
+
+		<% @categories.each do |c| %>
+			<div class="col-sm-4">
+              <%= link_to browse_path(c: c.id,page: 1) do %>
+                <%=c.category_name %> <span class='label label-primary pull-right'><%= Job.category_count(c.id) %></span>
+              <% end %>
+            </div>
+		<% end %>
+	</div>
+</div>

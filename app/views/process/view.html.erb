@@ -1,0 +1,68 @@
+<div class="text-right">
+    <% if @previous_applicant %>
+        <%= link_to 'Previous applicant', application_url(id: @previous_applicant.id), class:'btn btn-primary btn-xs' %>
+    <% end %>
+    <% if @next_applicant %>
+        <%= link_to 'Next applicant', application_url(id: @next_applicant.id), class:'btn btn-primary btn-xs' %>
+    <% end %>
+</div>
+<div class="col-sm-12">
+	<%= render "/shared/wizard",:params => @wizard %>
+</div>
+<div class="col-sm-12">
+	<h1><%= "#{@application.user.first_name} #{@application.user.last_name}" %></h1>
+</div>
+<div class="col-sm-12">
+	<h3>Position: <%= @application.job.title %></h3>
+</div>
+<div id="<%=generate_tab_id%>" class="col-sm-12">
+	<div class="pull-right">
+      <% if @is_applicant %>
+          <% if !@application.dropped %>
+              <p class="btn-success">Application under review</p>
+          <% else %>
+              <p class="btn-danger">Application dropped</p>
+          <% end %>
+      <% else %>
+          <% if !@application.dropped %>
+              <% modal_drop_id = generic_random_id %>
+              <% modal_advance_id = generic_random_id %>
+              <%= link_to 'Schedule interview', calendar_path(application_id: @application.id), class:'btn btn-primary btn-xs' %>
+              <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#<%=modal_drop_id%>">
+                Drop
+              </button>
+              <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#<%=modal_advance_id%>">
+                Advance
+              </button>
+              <%= render 'modal_drop',:modal_id => modal_drop_id %>
+              <%= render 'modal_advance',:modal_id => modal_advance_id %>
+          <% else %>
+              <p class="btn-danger">Application dropped</p>
+          <% end %>
+      <% end %>
+	</div>
+	<ul class="tabs">
+      <% if !@is_applicant %>
+		<li class="tab"><a href="#tabs-comments">Comments</a></li>
+      <% end %>
+		<li class="tab"><a href="#tabs-cover">Cover letter</a></li>
+		<li class="tab"><a href="#tabs-cv">Uploads</a></li>
+		<li class="tab"><a href="#tabs-screening">Screening</a></li>
+	</ul>
+      <% if !@is_applicant %>
+        <div id="tabs-comments">
+            <%= render "comments" %>
+        </div>
+      <% end %>
+	<div id="tabs-cover">
+		<%= render "cover" %>
+	</div>
+	<div id="tabs-cv">
+		<%= render "uploads" %>
+	</div>
+	<div id="tabs-screening">
+		<%= render "screening" %>
+	</div>
+</div>
+
+

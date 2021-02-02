@@ -2,14 +2,20 @@
 #
 # Table name: answers
 #
-#  id             :integer          not null, primary key
+#  id             :bigint           not null, primary key
 #  content        :text
-#  question_id    :integer
-#  application_id :integer
-#  choice_id      :integer
-#  created_at     :datetime
-#  updated_at     :datetime
+#  question_id    :bigint
+#  application_id :bigint
+#  choice_id      :bigint
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #  filter_id      :integer
+#
+# Indexes
+#
+#  index_answers_on_application_id  (application_id)
+#  index_answers_on_choice_id       (choice_id)
+#  index_answers_on_question_id     (question_id)
 #
 
 

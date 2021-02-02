@@ -49,6 +49,9 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+gem 'annotate', '3.0.2' #https://github.com/ctran/annotate_models
+
 end
 
 group :test do

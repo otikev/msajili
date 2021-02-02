@@ -1,0 +1,27 @@
+<div class="col-sm-12">
+	<div class="col-sm-3"><div id="add_comment" class="btn btn-primary">Add comment</div></div>
+	<div class="col-sm-9">
+		<div id="addcomment">
+			<%= form_for(@comment, url: createcomment_path, html: {class: "form-horizontal",role:"form"}) do |f| %>
+				<%= f.hidden_field :application_id %>
+				<%= f.hidden_field :user_id %>
+				<%= f.hidden_field :stage_id %>
+				<%= f.text_area :message, rows: 2,class: "btn-block"%>
+				<%= f.submit "Post", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+<% @comments.each do |c| %>
+	<div class="col-sm-12"><hr/></div>
+	<div class="col-sm-12">
+		<div class="col-sm-3">
+			<div><b><%= "#{c.user.first_name} #{c.user.last_name}" %></b></div>
+			<div><%= format_date(c.created_at) %></div>
+			<div>Stage: <%= c.stage.title %></div>
+		</div>
+		<div class="col-sm-9">
+			<%= simple_format(c.message) %>
+		</div>
+	</div>
+<% end %>

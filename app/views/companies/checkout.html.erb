@@ -1,0 +1,61 @@
+<div class="col-sm-12"><br/>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2><b>Make payment</b></h2>
+      </div>
+      <div class="panel-body">
+        <%= form_for(:checkout, url: order_path, method: 'post',html: {role:"form"}) do |f|%>
+            <div class="form-group row">
+              <div class="col-sm-12">
+              <%= f.label :first_name,'Name',class: "col-sm-4" %>
+              <%= f.text_field :first_name, :value => @current_user.first_name, class: "col-sm-8",:readonly => true  %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12">
+              <%= f.label :email,'Email',class: "col-sm-4 control-label" %>
+              <%= f.text_field :email, :value => @current_user.email, class: "col-sm-8",:readonly => true  %>
+                </div>
+            </div>
+            <% if @company.package == Package::ON_DEMAND %>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                  <%= f.label :unit_price,'Price per job',class: "col-sm-4" %>
+                  <%= f.text_field :unit_price, :value => "Ksh. #{Package::ON_DEMAND_PRICE}", class: "col-sm-8",:readonly => true  %>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                  <%= f.label :quantity,'No. of Jobs', class: "col-sm-4" %>
+                  <%= f.text_field :quantity,class: "col-sm-8", :required => true %>
+                    </div>
+                </div>
+            <% elsif @company.package == Package::PREMIUM %>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                  <%= f.label :unit_price,'Price per month',class: "col-sm-4" %>
+                  <%= f.text_field :unit_price, :value => "Ksh. #{Package::PREMIUM_PRICE}", class: "col-sm-8",:readonly => true  %>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                  <%= f.label :quantity,'No. of Months', class: "col-sm-4" %>
+                  <%= f.text_field :quantity,class: "col-sm-8", :required => true %>
+                    </div>
+                </div>
+            <% end %>
+            <div class="form-group row">
+              <div class="col-sm-12">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-4"><%= f.submit('Proceed to checkout',class: 'btn btn-large btn-success') %></div>
+              <div class="col-sm-4"></div>
+                </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3"></div>
+</div>

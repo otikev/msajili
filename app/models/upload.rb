@@ -2,15 +2,19 @@
 #
 # Table name: uploads
 #
-#  id             :integer          not null, primary key
+#  id             :bigint           not null, primary key
 #  upload_type    :integer
-#  description    :string(255)
-#  url            :string(255)
-#  file           :string(255)
-#  user_id        :integer
-#  created_at     :datetime
-#  updated_at     :datetime
+#  description    :string
+#  url            :string
+#  file           :string
+#  user_id        :bigint
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #  application_id :integer
+#
+# Indexes
+#
+#  index_uploads_on_user_id  (user_id)
 #
 
 class Upload < ApplicationRecord

@@ -1,0 +1,19 @@
+<% provide(:title, "#{@company.name} vacancies") %>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6 career_page_header">
+    <%= if @company.has_website? then link_to 'Back to company website', @company.website ,class:'btn btn-primary' end %>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6 career_page_body">
+    <% if @jobs.size > 0 %>
+        <%= render 'available_jobs' %>
+    <% else %>
+        <%= render 'no_jobs' %>
+    <% end %>
+  </div>
+  <div class="col-sm-3"></div>
+</div>

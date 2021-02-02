@@ -1,0 +1,7 @@
+<% provide(:title, 'Recruiters') %>
+<div class='row'>
+  <div  class="col-sm-12">
+    <%= link_to 'New Recruiter', newrecruiter_path(company_id: @current_user.company.id), class:'btn btn-primary' %>
+  </div>
+</div>
+<%= render 'users', :filter => Role.recruiter %>

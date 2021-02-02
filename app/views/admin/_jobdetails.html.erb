@@ -1,0 +1,55 @@
+<%= form_for(@job,url: adminupdate_job_path,  html: {class: "form-horizontal",role:"form"}) do |f| %>
+	<%= f.hidden_field :company_id%>
+	<%= f.hidden_field :id%>
+	<%= f.hidden_field :user_id%>
+    <% if @job.source %>
+        <div class="form-group">
+          <%= f.label :source, "Source URL", class: "col-sm-2 control-label"  %>
+          <div class="col-sm-10">
+            <%= link_to @job.source, @job.source, :target => '_blank' %>
+          </div>
+        </div>
+    <% end %>
+	<div class="form-group">
+		<%= f.label :category, class: "col-sm-2 control-label"  %>
+		<div class="col-sm-10">
+    		<%= f.collection_select(:category_id,Category.all,:id,:category_name,{:prompt => true},{:class => "form-control"})%>
+		</div>
+    </div>
+    <div class="form-group">
+      <%= f.label :company_name, 'Company', class: 'col-sm-2 control-label'  %>
+      <div class="col-sm-10">
+        <%= f.text_field :company_name, class: "form-control", :required=>true %>
+      </div>
+    </div>
+    <div class="form-group">
+		<%= f.label :title, "Title", class: "col-sm-2 control-label"  %>
+		<div class="col-sm-10">
+			<%= f.text_field :title, class: "form-control", :required=>true %>
+		</div>
+	</div>
+	<div class="form-group">
+    	<%= f.label :country, class: "col-sm-2 control-label"  %>
+    	<div class="col-sm-5">
+			<%= country_select('job','country',{},{:class => "form-control"})%>
+		</div>
+		<%= f.label :city, class: "col-sm-1 control-label"  %>
+		<div class="col-sm-4">
+			<%= f.text_field :city, class: "form-control", :required=>true  %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :deadline, class: "col-sm-2 control-label"  %>
+    	<div class="col-sm-3">
+			<%= f.text_field :deadline, id: "#{generate_datepicker_id}", class: 'form-control', :required=>true, placeholder:"yyyy-mm-dd e.g 2001-10-05"%>
+		</div>
+	</div>
+    <div class="form-group">
+      <div class="col-sm-2"></div>
+		<div class="col-sm-10">
+          <%= f.submit 'Update Job details', class: 'btn btn-large btn-primary' %>
+          <%= link_to 'External url', external_url(n:@job.title,t:@job.token), class:'btn btn-success', :target => '_blank' %>
+		</div>
+    </div>
+	
+<% end %>

@@ -1,0 +1,58 @@
+
+    <div class='row'>
+      <div class="col-sm-12">
+        My Uploaded files
+      </div>
+      <div class="col-sm-12">
+        <table id="uploads" class="table table-striped small_font" data-returnto="<%= @current_url %>" data-role="attachment" data-application="<%= @application.id %>">
+          <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="col-sm-12">
+        Attached files
+      </div>
+      <div class="col-sm-12">
+        <table id="attached" class="table table-striped small_font" data-returnto="<%= @current_url %>" data-application="<%= @application.id %>">
+          <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <% if @application.has_attachments? then %>
+        <%= form_tag completeapplication_url do -%>
+            <%= hidden_field_tag 'application[job_id]', @job.id %>
+            <div class=" row text-center">
+                Your application is now ready. Make sure you attach all the relevant files before you submit the application.
+            </div></br>
+            <div class=" row text-center">
+                <%= submit_tag 'Submit application', :class => 'btn btn-lg btn-success' %>
+            </div>
+        <% end -%>
+    <% else %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="col-sm-12 text-center">
+              You have not attached any files to the application. Make sure you attach all the relevant files.
+            </div>
+          </div>
+        </div>
+    <% end %>

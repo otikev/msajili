@@ -2,19 +2,19 @@
 #
 # Table name: companies
 #
-#  id          :integer          not null, primary key
-#  name        :string(255)
+#  id          :bigint           not null, primary key
+#  name        :string
 #  about       :text
-#  phone       :string(255)
-#  country     :string(255)
-#  city        :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  website     :string(255)
+#  phone       :string
+#  country     :string
+#  city        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  website     :string
 #  package     :integer
 #  trial_used  :integer          default(0)
-#  referral_id :string(255)
-#  identifier  :string(255)
+#  referral_id :string
+#  identifier  :string
 #
 
 

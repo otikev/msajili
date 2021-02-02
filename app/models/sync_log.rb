@@ -2,12 +2,12 @@
 #
 # Table name: sync_logs
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  record_type :integer
 #  record_id   :integer
 #  log_type    :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 class SyncLog < ApplicationRecord

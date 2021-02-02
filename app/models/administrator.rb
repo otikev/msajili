@@ -2,15 +2,15 @@
 #
 # Table name: administrators
 #
-#  id            :integer          not null, primary key
-#  email         :string(255)
-#  first_name    :string(255)
-#  last_name     :string(255)
-#  password_hash :string(255)
-#  password_salt :string(255)
-#  auth_token    :string(255)
-#  created_at    :datetime
-#  updated_at    :datetime
+#  id            :bigint           not null, primary key
+#  email         :string
+#  first_name    :string
+#  last_name     :string
+#  password_hash :string
+#  password_salt :string
+#  auth_token    :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #  role          :integer          default(1)
 #  enabled       :boolean          default(TRUE)
 #

@@ -2,11 +2,15 @@
 #
 # Table name: filters
 #
-#  id         :integer          not null, primary key
-#  title      :string(255)
-#  job_id     :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id         :bigint           not null, primary key
+#  title      :string
+#  job_id     :bigint
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_filters_on_job_id  (job_id)
 #
 
 

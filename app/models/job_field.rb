@@ -2,13 +2,17 @@
 #
 # Table name: job_fields
 #
-#  id         :integer          not null, primary key
-#  title      :string(255)
+#  id         :bigint           not null, primary key
+#  title      :string
 #  content    :text
-#  job_id     :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  job_id     :bigint
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #  position   :integer
+#
+# Indexes
+#
+#  index_job_fields_on_job_id  (job_id)
 #
 
 class JobField < SyncBase

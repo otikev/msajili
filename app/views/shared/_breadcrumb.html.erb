@@ -1,0 +1,50 @@
+<% if @breadcrumb %>
+<div class="row">
+	<div id="breadcrumb" class="col-xs-12">
+		<ol class="breadcrumb">
+            <% if @breadcrumb && @breadcrumb["procedures"] %>
+              <li><a href="<%= procedures_dashboard_path %>">Procedures</a></li>
+            <% end %>
+            <% if @breadcrumb && @breadcrumb["job_status"] %>
+              <li><a href="<%= jobs_dashboard_path(:status => @breadcrumb["job_status"] ) %>"> <%= Job.status_name_for_code(@breadcrumb["job_status"]) %> Jobs</a></li>
+            <% end %>
+			<% if @breadcrumb && @breadcrumb["job_token"] %>
+				<li><a href="<%= processjob_url(t: @breadcrumb["job_token"]) %>">Process Job</a></li>
+			<% end %>
+			<% if @breadcrumb && @breadcrumb["job_id"] %>
+				<li><a href="<%= showjob_url(id: @breadcrumb["job_id"]) %>">Edit Job</a></li>
+			<% end %>
+			<% if @breadcrumb && @breadcrumb["application_id"] %>
+				<li><a href="<%= application_url(id: @breadcrumb["application_id"]) %>">Application</a></li>
+			<% end %>
+			<% if @breadcrumb && @breadcrumb["template_id"] %>
+				<li><a href="<%= showtemplate_url(id: @breadcrumb["template_id"]) %>">Template</a></li>
+			<% end %>
+			<% if @breadcrumb && @breadcrumb["edittemplate_id"] %>
+				<li><a href="<%= edittemplate_url(id: @breadcrumb["edittemplate_id"]) %>">Edit Template</a></li>
+			<% end %>
+			<% if @breadcrumb && @breadcrumb["newtemplate"] %>
+				<li><a href="<%= newtemplateq_url %>">New Template</a></li>
+			<% end %>
+			<% if @breadcrumb && @breadcrumb["newprocedure"] %>
+				<li><a href="<%= newprocedure_url %>">New Procedure</a></li>
+			<% end %>
+			<% if @breadcrumb && @breadcrumb["editprocedure_id"] %>
+				<li><a href="<%= editprocedure_url(id: @breadcrumb["editprocedure_id"] ) %>">Edit Procedure</a></li>
+			<% end %>
+            <% if @breadcrumb && @breadcrumb["select_procedure"] %>
+                <li><a href="<%= selectprocedure_path(id: @breadcrumb["select_procedure"]) %>">Select Procedure</a></li>
+            <% end %>
+            <% if @breadcrumb && @breadcrumb["custom_fields"] %>
+                <li><a href="<%= customfields_path(id: @breadcrumb["custom_fields"]) %>">Edit Custom Fields</a></li>
+            <% end %>
+            <% if @breadcrumb && @breadcrumb["edit_questions"] %>
+                <li><a href="<%= definequestions_path(id: @breadcrumb["edit_questions"]) %>">Edit Questions</a></li>
+            <% end %>
+          <% if @breadcrumb && @breadcrumb["edit_filters"] %>
+              <li><a href="<%= definequestions_path(id: @breadcrumb["edit_filters"], edit: true) %>">Edit Filters</a></li>
+          <% end %>
+		</ol>
+	</div>
+</div>
+<% end %>

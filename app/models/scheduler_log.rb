@@ -2,10 +2,10 @@
 #
 # Table name: scheduler_logs
 #
-#  id         :integer          not null, primary key
-#  scheduler  :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id         :bigint           not null, primary key
+#  scheduler  :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class SchedulerLog < ApplicationRecord

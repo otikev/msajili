@@ -1,4 +1,4 @@
-class CreateJobStats < ActiveRecord::Migration
+class CreateJobStats < ActiveRecord::Migration[6.0]
   def change
     create_table :job_stats do |t|
       t.integer :views, :default => 0

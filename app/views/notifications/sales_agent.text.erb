@@ -1,0 +1,22 @@
+Mail from Msajili
+
+Msajili Sales Agent Account
+
+Welcome to Msajili Sales, <%= @agent.first_name %> <%= @agent.last_name %>.
+
+Msajili received an agent request using <%= @agent.email %>. An agent account has been created for you at Msajili Sales.
+
+Your referral id is: <%= @agent.referral_id %>
+
+Provide this referral id to your contacts to be able to track your commissions. Note that your contacts must enter
+this referral id when they signup. If they don't enter it then there is no way for you or us to track your commissions.
+
+You can login to the sales console at <%=agent_url%>
+
+Your email: <%= @agent.email %>
+Your password: <%= @agent.generated_password%>
+
+Please ensure that you change your password once you login.
+
+Regards,
+Msajili Team.

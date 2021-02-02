@@ -2,27 +2,29 @@
 #
 # Table name: jobs
 #
-#  id             :integer          not null, primary key
-#  title          :string(255)
+#  id             :bigint           not null, primary key
+#  title          :string
 #  deadline       :date
-#  country        :string(255)
-#  city           :string(255)
-#  company_id     :integer
-#  category_id    :integer
-#  created_at     :datetime
-#  updated_at     :datetime
-#  token          :string(255)
+#  country        :string
+#  city           :string
+#  company_id     :bigint
+#  category_id    :bigint
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  token          :string
 #  status         :integer
 #  user_id        :integer
 #  procedure_id   :integer
 #  paid_on_demand :integer          default(0)
 #  job_type       :integer          default(0)
-#  company_name   :string(255)
+#  company_name   :string
 #  source         :text
 #
 # Indexes
 #
-#  index_jobs_on_user_id  (user_id)
+#  index_jobs_on_category_id  (category_id)
+#  index_jobs_on_company_id   (company_id)
+#  index_jobs_on_user_id      (user_id)
 #
 
 class Job < SyncBase

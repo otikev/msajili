@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_filter :login_required
+  before_action :login_required
   
   #renders the dashboard for applicants
   def index

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :except => [:new,:new_admin, :create,:activate,:resend]
-  before_filter :recruiter_login_required, :only => :list
-  before_filter :admin_login_required, :only => :set_enabled
+  before_action :login_required, :except => [:new,:new_admin, :create,:activate,:resend]
+  before_action :recruiter_login_required, :only => :list
+  before_action :admin_login_required, :only => :set_enabled
 
   def new
     @user = User.new

@@ -1,5 +1,5 @@
 class ProcessController < ApplicationController
-  before_filter :recruiter_login_required, :except => [:application]
+  before_action :recruiter_login_required, :except => [:application]
   
   def index
     if params[:t]

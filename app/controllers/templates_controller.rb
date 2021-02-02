@@ -1,5 +1,5 @@
 class TemplatesController < ApplicationController
-  before_filter :recruiter_login_required
+  before_action :recruiter_login_required
   
   def questions
     @template = Template.new

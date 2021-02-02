@@ -2,7 +2,7 @@ class AgentsController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :agent_required,:except => [:signin,:index,:agent_request]
+  before_action :agent_required,:except => [:signin,:index,:agent_request]
 
   def index
     @agent = SalesAgent.new

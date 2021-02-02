@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_filter :login_required
+  before_action :login_required
 
   def attach
     upload = Upload.where(:id => params[:upload_id].to_i).first

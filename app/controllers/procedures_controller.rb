@@ -1,5 +1,5 @@
 class ProceduresController < ApplicationController
-  before_filter :admin_login_required
+  before_action :admin_login_required
   
   def new
     @procedure = Procedure.new

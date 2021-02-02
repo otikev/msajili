@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_filter :recruiter_login_required
+  before_action :recruiter_login_required
   def index
     if params[:report]
       start_date = params[:report][:start_date].to_date

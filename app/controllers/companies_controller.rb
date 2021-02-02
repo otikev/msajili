@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_filter :admin_login_required, :except => [:new,:show,:create]
+  before_action :admin_login_required, :except => [:new,:show,:create]
 
   def subscribe
     company = @current_user.company

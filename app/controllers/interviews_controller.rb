@@ -1,5 +1,5 @@
 class InterviewsController < ApplicationController
-  before_filter :recruiter_login_required
+  before_action :recruiter_login_required
 
   def calendar
     if params[:application_id]

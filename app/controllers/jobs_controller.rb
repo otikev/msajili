@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_filter :login_required, :except => [:display,:browse,:search]
+  before_action :login_required, :except => [:display,:browse,:search]
 
   def new_job
     @uijob = UiJob.new

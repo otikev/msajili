@@ -12,10 +12,9 @@
 
   <title>Msajili | <%= yield(:title) %></title>
   <%= favicon_link_tag 'icon.png' %>
-  <%#= stylesheet_link_tag 'application', media: "all" %>
-  <%#= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag 'application' %>
   <%= javascript_pack_tag "application" %>
-  
+
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,800italic' rel='stylesheet' type='text/css'>
 </head>

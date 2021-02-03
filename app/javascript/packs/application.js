@@ -24,6 +24,12 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('datatables.net-bs4')
+require('custom/owl.carousel.min')
+require('custom/nivo-lightbox.min')
+require("custom/mobile_carousel")
+require("custom/datatables")
+require("custom/custom")
+require("custom/app")
 
 import $ from 'jquery';
 global.$ = jQuery;

@@ -1,4 +1,4 @@
-﻿$(window).load(function() {
+﻿$(window).on('load',function() {
         $('#carousel-screenshots').carousel();
 
         $(".carousel-nav a").click(function(e){
